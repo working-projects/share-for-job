@@ -1,0 +1,82 @@
+
+data:{
+        company_name:"comapny A",
+        company_address:"house 10, road 1 , nikunja 2",
+        first_name:"Md. karim",
+        last_name : "Mia",
+        phoneNumber :"01639130474", 
+        email : "karim001@example.com",
+        password:"112233",
+        city:"dhaka",
+        present_address:"house 10, sector 3 ,road 1 , uttara",
+        permanent_address:"kaji bari, thana: ramgonj , noakhali",
+        latitude:40.689060,
+        longitude:74.044636,
+        profileImageUrl:"https://i.picsum.photos/id/1/5616/3744.jpg",
+        nidForntUrl:"https://i.picsum.photos/id/1028/5184/3456.jpg",
+        nidBackUrl:"https://i.picsum.photos/id/1033/2048/1365.jpg"
+}
+
+//driver
+data:{
+        
+        first_name:"Md.Reased",
+        last_name : "Mia",
+        phoneNumber :"01308989081", 
+        email : "reased001@example.com",
+        password:"112233",
+        city:"dhaka",
+        present_address:"house 10, sector 3 ,road 1 , uttara",
+        permanent_address:"kaji bari, thana: ramgonj , noakhali",
+        profileImageUrl:"https://i.picsum.photos/id/1/5616/3744.jpg",
+        nidForntUrl:"https://i.picsum.photos/id/1028/5184/3456.jpg",
+        nidBackUrl:"https://i.picsum.photos/id/1033/2048/1365.jpg"
+        lisenseForntUrl:"https://i.picsum.photos/id/1028/5184/3456.jpg",
+        lisenseBackUrl:"https://i.picsum.photos/id/1033/2048/1365.jpg"
+        agencyId:""
+}
+
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCNG_B5Bh_-bsjWzpnHphnVBdM4EhdZZyU",
+//     authDomain: "getinhighway-aa424.firebaseapp.com",
+//     databaseURL: "https://getinhighway-aa424.firebaseio.com",
+//     projectId: "getinhighway-aa424",
+//     storageBucket: "getinhighway-aa424.appspot.com",
+//     messagingSenderId: "494725936785",
+//     appId: "1:494725936785:web:9c75173f07bbc4785d3130"
+//   };
+
+
+
+
+
+
+import { ClassType, Resolver, Mutation, UseMiddleware, Arg } from "type-graphql";
+import { Middleware } from "type-graphql/dist/interfaces/Middleware";
+
+function CreateResolver<T extends ClassType, X extends ClassType>(
+    suffix:string,
+    returnType:T,
+    inputType:X,
+    entity:any,
+    middleware?:Middleware<any>[]
+){
+
+    @Resolver()
+    class BaseResolver{
+        @Mutation(()=> returnType,{name:`create${suffix}`})
+        @UseMiddleware(...(middleware || []))
+        async create(@Arg("data",()=> inputType)data:any){
+            const user = entity.create(data).save()
+            if (user) {
+                throw new Error("User does not save")
+            }
+
+            return
+
+        }
+    }
+
+    return BaseResolver
+}

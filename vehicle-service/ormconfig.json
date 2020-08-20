@@ -1,0 +1,24 @@
+{
+   "type": "postgres",
+   "host": "getinhighwaydb.cckcxnuuj8bu.us-east-2.rds.amazonaws.com",
+   "port": 5432,
+   "username": "root",
+   "password": "rayhan9016803",
+   "database": "vehicle_db",
+   "synchronize": true,
+   "logging": false,
+   "dropDatabase":true,
+   "dropTable":true,
+   "entities": ["dist/**/*.entity{.ts,.js}"],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

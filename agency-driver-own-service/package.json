@@ -1,0 +1,51 @@
+{
+   "name": "agency-driver-own-service",
+   "version": "1.0.0",
+   "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node-dev --respawn src/index.ts",
+      "build": "tsc -b",
+      "clean": "rimraf ./dist",
+      "prod": "node ./dist/src/index.js"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git@ssh.dev.azure.com:v3/CTLProduction/GetinHighway/agency-driver-own-service"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+      "@types/bcryptjs": "^2.4.2",
+      "@types/cookie-parser": "^1.4.2",
+      "@types/dotenv": "^8.2.0",
+      "@types/express": "^4.17.6",
+      "@types/firebase": "^3.2.1",
+      "@types/graphql-upload": "^8.0.3",
+      "@types/jsonwebtoken": "^8.5.0",
+      "@types/node": "^14.0.6",
+      "rimraf": "^3.0.2",
+      "ts-node": "8.10.2",
+      "ts-node-dev": "^1.0.0-pre.44",
+      "typescript": "3.9.3"
+   },
+   "dependencies": {
+      "@apollo/federation": "^0.16.2",
+      "apollo-graphql": "^0.4.4",
+      "apollo-server-express": "^2.14.1",
+      "bcryptjs": "^2.4.3",
+      "class-validator": "^0.12.2",
+      "cookie-parser": "^1.4.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "graphql": "^15.0.0",
+      "graphql-upload": "^11.0.0",
+      "jsonwebtoken": "^8.5.1",
+      "pg": "^8.2.1",
+      "reflect-metadata": "^0.1.13",
+      "type-graphql": "^1.0.0-rc.2",
+      "typeorm": "0.2.25"
+   }
+}
